@@ -70,3 +70,9 @@ def login():
     else:
         print('登录失败')
     return redirect(url_for('.index'))
+
+
+@main.route('/logout', methods=['GET'])
+def logout():
+    session.clear()
+    return redirect(url_for('index.index'))
