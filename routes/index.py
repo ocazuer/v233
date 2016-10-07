@@ -11,4 +11,4 @@ main = Blueprint('index', __name__)
 def index():
     ns = Node.query.all()
     ts = Topic.query.all()
-    return render_template('index.html', node_list=ns, topic_list=ts)
+    return render_template('index.html', node_list=ns, topic_list=ts, user=current_user())

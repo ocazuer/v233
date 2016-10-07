@@ -21,9 +21,16 @@
             <a class="bbs-top-item" href="/">V233</a>
         </div>
         <div class="bbs-top-menu">
+        {% if user == None %}
             <a class="bbs-top-item" href="/node">节点</a>
             <a class="bbs-top-item" href="/user">登录</a>
             <a class="bbs-top-item" href="/user">注册</a>
+        {% else %}
+            <a class="bbs-top-item" href="/">首页</a>
+            <a class="bbs-top-item" href="/user/{{ user.id }}">{{ user.username }}</a>
+            <a class="bbs-top-item" href="/signout">登出</a>
+            <!-- todo: faire la page pour signout-->
+        {% endif %}
         </div>
     </div>
 </div>
@@ -35,8 +42,13 @@
         <div class="bbs-sidebar">
             <div class="bbs-box">
                 <div class="bbs-cell">
-                    hello world!<br><br><br><br><br><br><br><br><br>
-                    这是一个神奇的网站
+                {% if user == None %}
+                    未登录
+                {% else %}
+                    已经登录
+                    <br>
+                    用户名：{{ user.username }}
+                {% endif %}
                 </div>
             </div>
         </div>

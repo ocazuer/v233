@@ -11,6 +11,7 @@ def current_user():
     if uid is not None:
         u = User.query.get(uid)
         return u
+    return None
 
 
 @main.route('/')
