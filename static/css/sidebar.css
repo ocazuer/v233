@@ -1,0 +1,57 @@
+.bbs-sidebar {
+    width: 270px;
+    color: gray;
+    font-size: 0.8em;
+}
+.bbs-sidebar-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 1.2em;
+}
+.bbs-sidebar-cell-username{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+.bbs-sidebar-write{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.bbs-sidebar-write-img{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+.bbs-sidebar-favorite{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 0px !important;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+.bbs-sidebar-favorite-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    font-size: 0.8em;
+}
+.bbs-sidebar-favorite-item-num{
+    font-size: 1.5em;
+}
+.bbs-sidebar-favorite-item + .bbs-sidebar-favorite-item{
+    border-left: 1px solid #979797;
+}
+
+.bbs-sidebar b{
+    color: #000000;
+}
+.bbs-sidebar-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

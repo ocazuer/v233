@@ -5,6 +5,7 @@
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bbs.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
     {% block css %}{% endblock %}
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
@@ -17,9 +18,9 @@
 <body class="bbs">
 <div class="bbs-top">
     <div class="bbs-top-container">
-        <div class="bbs-top-logo">
-            <a class="bbs-top-item" href="/">V233</a>
-        </div>
+        <!--<div class="bbs-top-logo">-->
+            <a class="bbs-top-logo" href="/">V233</a>
+        <!--</div>-->
         <div class="bbs-top-menu">
         {% if user != None %}
             <a class="bbs-top-item" href="/">首页</a>
@@ -40,15 +41,46 @@
         </div>
         <div class="bbs-sidebar">
             <div class="bbs-box">
+            {% if user == None %}
                 <div class="bbs-cell">
-                {% if user == None %}
-                    未登录
-                {% else %}
-                    已经登录
+                    <b>V2EX = way to explore</b>
                     <br>
-                    用户名：{{ user.username }}
-                {% endif %}
+                    <span>V2EX 是一个关于分享和探索的地方</span>
                 </div>
+                <div class="bbs-cell bbs-sidebar-login">
+                    <button class="pure-button">现在注册</button>
+                    <br>
+                    <span>已注册用户请&nbsp&nbsp<a>登录</a></span>
+                </div>
+            {% else %}
+                <div class="bbs-cell bbs-sidebar-user">
+                    <img src="{{ user.avatar }}">
+                    <div class="bbs-sidebar-cell-username">
+                        <a href="/user/{{ user.id }}">{{ user.username }}</a>
+                    </div>
+                </div>
+                <div class="bbs-cell bbs-sidebar-favorite">
+                    <div class="bbs-sidebar-favorite-item">
+                        <span class="bbs-sidebar-favorite-item-num">0</span>
+                        <span>节点收藏</span>
+                    </div>
+                    <div class="bbs-sidebar-favorite-item">
+                        <span class="bbs-sidebar-favorite-item-num">0</span>
+                        <span>主题收藏</span>
+                    </div>
+                    <div class="bbs-sidebar-favorite-item">
+                        <span class="bbs-sidebar-favorite-item-num">0</span>
+                        <span>特别关注</span>
+                    </div>
+                </div>
+                <div class="bbs-cell bbs-sidebar-write">
+                    <img class="bbs-sidebar-write-img" src="https://www.v2ex.com/static/img/flat_compose.png">
+                    <a>创作新主题</a>
+                </div>
+                <div class="bbs-cell bbs-sidebar-notification">
+                    <a>0 条未读提醒</a>
+                </div>
+            {% endif %}
             </div>
         </div>
     </div>

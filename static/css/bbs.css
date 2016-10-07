@@ -41,8 +41,9 @@
 }
 
 .bbs-top-logo {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 900;
+    color: black !important;
 }
 
 .bbs-box {
@@ -73,10 +74,6 @@
 .bbs-content {
     flex: 1;
     min-width: 500px;
-}
-
-.bbs-sidebar {
-    width: 270px;
 }
 
 .bbs-footer {
@@ -126,4 +123,15 @@
 img {
     width: 48px;
     height: 48px;
+}
+
+a:link,
+a:visited{
+    color: #505050;
+    text-decoration: none;
+}
+a:hover,
+a:active{
+    color: #808080;
+    text-decoration: underline;
 }
