@@ -20,7 +20,7 @@ def admin_required(f):
 @main.route('/')
 def index():
     ms = Model.query.all()
-    return render_template('node_index.html', node_list=ms)
+    return render_template('node_index.html', node_list=ms, user=current_user())
 
 
 # @main.route('/edit/<id>')
@@ -32,7 +32,7 @@ def index():
 @main.route('/<int:id>')
 def show(id):
     m = Model.query.get(id)
-    return render_template('node.html', node=m)
+    return render_template('node.html', node=m, user=current_user())
 
 
 @main.route('/add', methods=['POST'])
@@ -41,7 +41,7 @@ def add():
     m = Model(form)
     m.save()
     # return redirect(url_for('.index'))
-    return render_template('node.html', node=m)
+    return render_template('node.html', node=m, user=current_user())
 
 
 # @main.route('/update/<int:id>', methods=['POST'])

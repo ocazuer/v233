@@ -21,15 +21,15 @@
             <a class="bbs-top-item" href="/">V233</a>
         </div>
         <div class="bbs-top-menu">
-        {% if user == None %}
-            <a class="bbs-top-item" href="/node">节点</a>
-            <a class="bbs-top-item" href="/user">登录</a>
-            <a class="bbs-top-item" href="/user">注册</a>
-        {% else %}
+        {% if user != None %}
             <a class="bbs-top-item" href="/">首页</a>
             <a class="bbs-top-item" href="/user/{{ user.id }}">{{ user.username }}</a>
             <a class="bbs-top-item" href="/signout">登出</a>
             <!-- todo: faire la page pour signout-->
+        {% else %}
+            <a class="bbs-top-item" href="/node">节点</a>
+            <a class="bbs-top-item" href="/user">登录</a>
+            <a class="bbs-top-item" href="/user">注册</a>
         {% endif %}
         </div>
     </div>

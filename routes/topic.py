@@ -12,7 +12,7 @@ main = Blueprint('topic', __name__)
 @main.route('/')
 def index():
     ms = Model.query.all()
-    return render_template('topic_index.html', topic_list=ms)
+    return render_template('topic_index.html', topic_list=ms, user=current_user())
 
 
 # @main.route('/edit/<id>')
@@ -23,8 +23,7 @@ def index():
 @main.route('/<int:id>')
 def show(id):
     m = Model.query.get(id)
-    u = current_user()
-    return render_template('topic.html', topic=m, user=u, User=User)
+    return render_template('topic.html', topic=m, User=User, user=current_user())
 
 
 @main.route('/add', methods=['POST'])

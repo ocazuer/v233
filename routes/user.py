@@ -17,7 +17,7 @@ def current_user():
 @main.route('/')
 def index():
     ms = Model.query.all()
-    return render_template('user_index.html', user_list=ms)
+    return render_template('user_index.html', user_list=ms, user=current_user())
 
 
 # @main.route('/edit/<id>')
@@ -29,7 +29,7 @@ def index():
 @main.route('/<int:id>')
 def show(id):
     m = Model.query.get(id)
-    return render_template('user.html', user=m)
+    return render_template('user.html', user=current_user())
 
 
 @main.route('/add', methods=['POST'])
@@ -41,7 +41,7 @@ def add():
         m.save()
         return redirect(url_for('.index'))
     else:
-        return render_template('user_error.html')
+        return render_template('user_error.html', user=current_user())
 
 
 # @main.route('/update/<int:id>', methods=['POST'])
