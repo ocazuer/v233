@@ -1,0 +1,129 @@
+.bbs {
+    font-family: 'Verdana', Georgia, 'Microsoft YaHei', '微软雅黑', STXihei, '华文细黑', serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+    word-break: normal;
+    background-color: #e2e2e2;
+    justify-content: flex-start;
+}
+
+.bbs-top {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 45px;
+    margin: 0;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, .117647) 0 1px 16px, rgba(0, 0, 0, .117647) 0 1px 12px;
+    justify-content: center;
+}
+
+.bbs-top-container {
+    display: flex;
+    flex-direction: row;
+    width: 1020px;
+    height: 100%;
+    margin-right: 25px;
+    margin-left: 25px;
+    justify-content: space-between;
+}
+
+.bbs-top-logo,
+.bbs-top-menu {
+    margin-top: auto;
+    margin-right: 0;
+    margin-bottom: auto;
+    margin-left: 0;
+}
+
+.bbs-top-logo {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.bbs-box {
+    margin: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    /*padding: 16px;*/
+    border-radius: 2px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, .117647) 0 1px 6px, rgba(0, 0, 0, .117647) 0 1px 4px;
+}
+
+.bbs-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /*flex: 1;*/
+}
+
+.bbs-body-container {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+    margin: 0 30px;
+    justify-content: center;
+}
+
+.bbs-content {
+    flex: 1;
+    min-width: 500px;
+}
+
+.bbs-sidebar {
+    width: 270px;
+}
+
+.bbs-footer {
+    display: flex;
+    flex-direction: row;
+    height: 45px;
+    /*使得 footer 总是在最下面*/
+    margin-top: auto;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, .117647) 0 1px 16px, rgba(0, 0, 0, .117647) 0 1px 12px;
+    justify-content: center;
+}
+
+.bbs-footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bbs-cell {
+    padding: 10px 0;
+    padding: 10px;
+}
+
+.bbs-cell+.bbs-cell {
+    border-top-width: 1px;
+    border-top-style: solid;
+    /*background-color: lightblue;*/
+    border-top-color: lightgray;
+}
+
+.bbs-top-item {
+    color: black;
+    text-decoration:none
+}
+
+.bbs-top-item + .bbs-top-item {
+    margin-left: 10px;
+}
+
+.bbs-top-item:hover {color: gray;}
+
+.hidden {
+    display: none;
+}
+
+img {
+    width: 48px;
+    height: 48px;
+}

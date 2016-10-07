@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    发帖
+{% endblock %}
+
+{% block content %}
+    <h1>{{ node.name }}</h1>
+    <div>
+        <form action="{{ url_for('topic.add') }}" method="post">
+            <input type="hidden" name="node_id" value="{{ node.id }}">
+            <input type="text" name="title" placeholder="输入 title">
+            <br>
+            <textarea type="text" name="content" placeholder="输入 content"></textarea>
+            <button>Post Topic</button>
+            <br>
+        </form>
+    </div>
+
+    {% for t in node.topics %}
+        <div>
+            <h1>{{ t.title }}</h1>
+        </div>
+    {% endfor %}
+
+{% endblock %}

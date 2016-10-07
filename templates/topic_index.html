@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>topics</title>
+</head>
+<body>
+    <div>
+        <form action="{{ url_for('.add') }}" method="post">
+            <input type="text" name="title" placeholder="输入 title">
+            <textarea type="text" name="content" placeholder="输入 content"></textarea>
+            <button>Add</button>
+        </form>
+    </div>
+
+{% for t in topic_list %}
+    <div>
+        <h1>{{ t.title }}</h1>
+        <div>{{ t.content }}</div>
+        <a href="{{ url_for('.delete', id=t.id) }}">删除</a>
+    </div>
+{% endfor %}
+
+</body>
+</html>

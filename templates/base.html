@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bbs.css') }}">
+    {% block css %}{% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="/static/js/bbs.js"></script>
+    {% block js %}{% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+
+</head>
+<body class="bbs">
+<div class="bbs-top">
+    <div class="bbs-top-container">
+        <div class="bbs-top-logo">
+            <a class="bbs-top-item" href="/">V233</a>
+        </div>
+        <div class="bbs-top-menu">
+            <a class="bbs-top-item" href="/node">节点</a>
+            <a class="bbs-top-item" href="/user">登录</a>
+            <a class="bbs-top-item" href="/user">注册</a>
+        </div>
+    </div>
+</div>
+<div class="bbs-body">
+    <div class="bbs-body-container">
+        <div class="bbs-content">
+            {% block content %}{% endblock %}
+        </div>
+        <div class="bbs-sidebar">
+            <div class="bbs-box">
+                <div class="bbs-cell">
+                    hello world!<br><br><br><br><br><br><br><br><br>
+                    这是一个神奇的网站
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bbs-footer">
+    <div class="bbs-footer-container">
+        copyright
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+
+{% block title %}
+    user - {{ user.username }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="bbs-box">
+        <div class="bbs-cell">
+            <h1>我的账号</h1>
+        </div>
+        <div class="bbs-cell">
+            我的 id：{{ user.id }}
+            <br>
+            我的昵称：{{ user.name }}
+            <br>
+            我的密码：{{ user.password }}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+.bbs-comment-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.bbs-comment-menu {
+    color: gray;
+}
+
+.bbs-comment-menu:visited,
+.bbs-comment-menu:hover,
+.bbs-comment-menu:active {
+    background-color: #eee;
+}
+
+.bbs-comment-item-right {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.bbs-comment-item-right-up {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0;
+    justify-content: space-between;
+}
+
+.bbs-comment-add-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.bbs-comment-add-textarea {
+    display: inline-block;
+    height: 100px;
+    margin-right: 0;
+    margin-left: 0;
+    resize: none;
+}
+
+.bbs-comment-add-bottom {
+    display: flex;
+    flex-direction: row;
+    /*align-self: flex-start;*/
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.bbs-comment-add-word {
+    font-size: .9em;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: gray;
+}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/bbs-comment.css">
+{% endblock %}
+
+{% block title %}
+    topic - {{ topic.name }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="bbs-box">
+        <div class="bbs-cell">
+            <h1>{{ topic.title }}</h1>
+        </div>
+        <div class="bbs-cell">
+            {{ topic.content }}
+        </div>
+    </div>
+
+    <div class="bbs-comment-list bbs-box">
+    {% for c in topic.comments %}
+        <div class="bbs-comment-item bbs-cell">
+
+            <div class="bbs-comment-item-left">
+                <img src={{ User.query.filter_by(id=c.user_id ).first().avatar }}></img>
+                <!--<img src="/static/img/avatar-default.jpg"></img>-->
+            </div>
+
+            <div class="bbs-comment-item-right">
+                <div class="bbs-comment-item-right-up">
+                    <a>{{ User.query.filter_by(id=c.user_id ).first().username }}</a>
+                    <a class="bbs-comment-menu hidden" href="{{ url_for('comment.delete', id=c.id) }}">delete</a>
+                </div>
+                <div class="bbs-comment-item-right-bottom">
+                    <div>{{ c.content }}</div>
+                </div>
+            </div>
+
+        </div>
+    {% endfor %}
+    </div>
+
+
+    <div class="bbs-comment bbs-box">
+        <div class="bbs-cell">
+            添加一条新的回复 {{ user.username }}
+        </div>
+        <form class="bbs-comment-add-cell bbs-cell pure-form" action="{{ url_for('comment.add') }}" method="post">
+            <input type="hidden" name="topic_id" value="{{ topic.id }}">
+            <input type="hidden" name="user_id" value="{{ user.id }}">
+            <textarea class="bbs-comment-add-textarea" type="text" name="content" placeholder=" "></textarea>
+            <div class="bbs-comment-add-bottom">
+                <button class="bbs-comment-add-button pure-button">Post comment</button>
+                <span class="bbs-comment-add-word">请尽量让自己的回复能够对别人有帮助</span>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

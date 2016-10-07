@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+    V233
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="bbs-box">
+        <div class="bbs-cell">
+            所有主题：
+        </div>
+        {% for topic in topic_list %}
+        <div class="bbs-cell">
+            <a href="/topic/{{ topic.id }}">{{ topic.title }}</a>
+            <span>{{ topic.comments|length }}</span>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <div class="bbs-box">
+        <div class="bbs-cell">
+            所有节点：
+        </div>
+        {% for node in node_list %}
+        <div class="bbs-cell">
+            <a href="/node/{{ node.id }}">{{ node.name }}</a>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

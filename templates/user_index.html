@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>users</title>
+</head>
+<body>
+    <div>
+        <h1>注册</h1>
+        <form action="{{ url_for('.add') }}" method="post">
+            <input type="text" name="username" placeholder="输入昵称">
+            <input type="text" name="password" placeholder="输入密码">
+            <input type="text" name="avatar" placeholder="输入头像图片的链接">
+            <button>Add user</button>
+        </form>
+    </div>
+    <div>
+        <h1>登录</h1>
+        <form action="{{ url_for('.login') }}" method="post">
+            <input type="text" name="username" placeholder="输入昵称">
+            <input type="text" name="password" placeholder="输入密码">
+            <button>login</button>
+        </form>
+    </div>
+    <div>
+        <h1>所有用户</h1>
+        {% for n in user_list %}
+        <div>
+            {# <a href="{{ url_for('.edit', id=n.id) }}">修改</a> #}
+            <a href="{{ url_for('.delete', id=n.id) }}">删除</a>
+            <a>{{ n.id }}</a>
+            <a href="{{ url_for('.show', id=n.id) }}">{{ n.username }}</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
