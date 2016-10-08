@@ -1,27 +1,61 @@
 {% extends "base.html" %}
 
+{% block css %}
+    <link rel="stylesheet" href="/static/css/bbs-topic.css">
+{% endblock %}
 
 {% block title %}
-    发帖
+    V233 › {{ node.name }}
 {% endblock %}
 
 {% block content %}
-    <h1>{{ node.name }}</h1>
-    <div>
-        <form action="{{ url_for('topic.add') }}" method="post">
-            <input type="hidden" name="node_id" value="{{ node.id }}">
-            <input type="text" name="title" placeholder="输入 title">
-            <br>
-            <textarea type="text" name="content" placeholder="输入 content"></textarea>
-            <button>Post Topic</button>
-            <br>
-        </form>
+
+    <div class="bbs-box">
+        <div class="bbs-cell">
+            <span class="dark-gray">V233</span>&nbsp&nbsp›&nbsp&nbsp{{ node.name }}
+            <p class="small dark-gray">{{ node.description }}</p>
+            <button class="pure-button small">创建新主题</button>
+        </div>
+
+
+        {% for t in node.topics %}
+            <div class="bbs-cell bbs-topic-cell dark-gray">
+                <img class="avatar" src="https://cdn.v2ex.co/gravatar/cb98eb9cd99bbaa5fb078e6fccf10e4d?s=73&d=retro">
+                <div class="bbs-topic-cell-content">
+                    <a class="bbs-topic-cell-content-title dark-gray" href="/topic/{{ t.id }}">{{ t.title }}</a>
+
+                    <div class="small">
+                        <b>username</b>
+                        <span class="light-gray">•</span>
+                        <span class="light-gray">一个小时前吧</span>
+                        <span class="light-gray">•</span>
+                        <span class="light-gray">最后回复来自</span> <span>某人</span>
+                    </div>
+                </div>
+                <div class="bbs-topic-cell-num">
+                    42
+                </div>
+            </div>
+        {% endfor %}
+
     </div>
 
-    {% for t in node.topics %}
-        <div>
-            <h1>{{ t.title }}</h1>
+    <div class="bbs-box">
+        <div class="bbs-cell bbs-topic-add-cel">
+            <form  class="pure-form" action="{{ url_for('topic.add') }}" method="post">
+                <input type="hidden" name="node_id" value="{{ node.id }}">
+
+                <input type="text"  class="bbs-topic-add-input pure-input-1 small" name="title" placeholder="请输入主题标题，如果标题能够表达完整内容，则正文可以为空">
+
+                <textarea type="text"  class="bbs-topic-add-textarea pure-input-1 small" name="content" placeholder="正文"></textarea>
+
+
+
+                <button class="bbs-topic-add-bottom bbs-comment-add-button pure-button small">创建新主题</button>
+
+            </form>
         </div>
-    {% endfor %}
+    </div>
+
 
 {% endblock %}

@@ -31,7 +31,7 @@ def add():
     form = request.form
     m = Model(form)
     m.save()
-    return redirect(url_for('.index'))
+    return redirect(url_for('node.show', id=m.node_id))
 
 
 # @main.route('/update/<int:id>', methods=['POST'])
