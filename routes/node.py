@@ -1,4 +1,5 @@
 from models.node import Node as Model
+from models.user import User
 from routes import *
 from functools import wraps
 
@@ -32,7 +33,7 @@ def index():
 @main.route('/<int:id>')
 def show(id):
     m = Model.query.get(id)
-    return render_template('node.html', node=m, user=current_user())
+    return render_template('node.html', node=m, user=current_user(), User=User)
 
 
 @main.route('/add', methods=['POST'])

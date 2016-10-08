@@ -20,16 +20,16 @@
 
         {% for t in node.topics %}
             <div class="bbs-cell bbs-topic-cell dark-gray">
-                <img class="avatar" src="https://cdn.v2ex.co/gravatar/cb98eb9cd99bbaa5fb078e6fccf10e4d?s=73&d=retro">
+                <img class="avatar" src={{ User.query.filter_by(id=t.user_id ).first().avatar }}>
                 <div class="bbs-topic-cell-content">
                     <a class="bbs-topic-cell-content-title dark-gray" href="/topic/{{ t.id }}">{{ t.title }}</a>
 
                     <div class="small">
-                        <b>username</b>
-                        <span class="light-gray">•</span>
+                        <b>{{ User.query.filter_by(id=t.user_id ).first().username }}</b>
+                        <!--<span class="light-gray">•</span>
                         <span class="light-gray">一个小时前吧</span>
                         <span class="light-gray">•</span>
-                        <span class="light-gray">最后回复来自</span> <span>某人</span>
+                        <span class="light-gray">最后回复来自</span> <span>某人</span>-->
                     </div>
                 </div>
                 <div class="bbs-topic-cell-num">
@@ -44,15 +44,10 @@
         <div class="bbs-cell bbs-topic-add-cel">
             <form  class="pure-form" action="{{ url_for('topic.add') }}" method="post">
                 <input type="hidden" name="node_id" value="{{ node.id }}">
-
-                <input type="text"  class="bbs-topic-add-input pure-input-1 small" name="title" placeholder="请输入主题标题，如果标题能够表达完整内容，则正文可以为空">
-
+                <input type="hidden" name="user_id" value="{{ user.id }}">
+                <input type="text"  class="bbs-topic-add-input pure-input-1 small" name="title" placeholder="请输入主题标题">
                 <textarea type="text"  class="bbs-topic-add-textarea pure-input-1 small" name="content" placeholder="正文"></textarea>
-
-
-
                 <button class="bbs-topic-add-bottom bbs-comment-add-button pure-button small">创建新主题</button>
-
             </form>
         </div>
     </div>

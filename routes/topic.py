@@ -1,5 +1,6 @@
 from models.topic import Topic
 from models.user import User
+from models.node import Node
 from routes import *
 from routes.user import current_user
 
@@ -23,7 +24,9 @@ def index():
 @main.route('/<int:id>')
 def show(id):
     m = Model.query.get(id)
-    return render_template('topic.html', topic=m, User=User, user=current_user())
+    author = User.query.filter_by(id=m.user_id ).first()
+    node = Node.query.filter_by(id=m.node_id ).first()
+    return render_template('topic.html', topic=m, User=User, user=current_user(), author=author, node=node)
 
 
 @main.route('/add', methods=['POST'])

@@ -129,9 +129,13 @@
 }
 
 img,
-avatar {
+.avatar {
     width: 48px;
     height: 48px;
+}
+.avatar-big {
+    width: 73px;
+    height: 73px;
 }
 
 a:link,

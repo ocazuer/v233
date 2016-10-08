@@ -2,6 +2,7 @@
 
 {% block css %}
     <link rel="stylesheet" href="/static/css/bbs-comment.css">
+    <link rel="stylesheet" href="/static/css/bbs-topic.css">
 {% endblock %}
 
 {% block title %}
@@ -11,8 +12,13 @@
 {% block content %}
 
     <div class="bbs-box">
-        <div class="bbs-cell">
-            <h1>{{ topic.title }}</h1>
+        <div class="bbs-topic-cell bbs-cell">
+            <div>
+                <a class="dark-gray" href="/">V233</a></span>&nbsp;&nbsp;›&nbsp;&nbsp;{{ node.name }}
+                <div class="bbs-topic-title">{{ topic.title }}</div>
+                <a href="/user/{{ author.id }}">{{ author.username }}</a>
+            </div>
+            <img class="avatar-big" src="{{ author.avatar }}">
         </div>
         <div class="bbs-cell">
             {{ topic.content }}

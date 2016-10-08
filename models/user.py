@@ -14,6 +14,7 @@ class User(db.Model, ModelMixin):
     avatar = db.Column(db.String())
     # relationship
     comments = db.relationship('Comment', backref="user")
+    topics = db.relationship('Topic', backref="user")
 
     def __init__(self, form):
         self.username = form.get('username', '')
