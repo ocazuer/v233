@@ -41,6 +41,9 @@ def configure_app():
     db.init_app(app)
     register_routes(app)
 
+    # markdwon
+    from flaskext.markdown import Markdown
+    Markdown(app)
 
 def configured_app():
     configure_app()

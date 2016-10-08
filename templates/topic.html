@@ -21,7 +21,7 @@
             <img class="avatar-big" src="{{ author.avatar }}">
         </div>
         <div class="bbs-cell">
-            {{ topic.content }}
+            {{ topic.content|markdown }}
         </div>
     </div>
 
@@ -40,7 +40,7 @@
                     <a class="bbs-comment-menu hidden" href="{{ url_for('comment.delete', id=c.id) }}">delete</a>
                 </div>
                 <div class="bbs-comment-item-right-bottom">
-                    <div>{{ c.content }}</div>
+                    <div>{{ c.content|markdown }}</div>
                 </div>
             </div>
 
@@ -56,7 +56,7 @@
         <form class="bbs-comment-add-cell bbs-cell pure-form" action="{{ url_for('comment.add') }}" method="post">
             <input type="hidden" name="topic_id" value="{{ topic.id }}">
             <input type="hidden" name="user_id" value="{{ user.id }}">
-            <textarea class="bbs-comment-add-textarea" type="text" name="content" placeholder=" "></textarea>
+            <textarea class="bbs-comment-add-textarea" type="text" name="content" placeholder="支持 markdown 语法"></textarea>
             <div class="bbs-comment-add-bottom">
                 <button class="bbs-comment-add-button pure-button">Post comment</button>
                 <span class="bbs-comment-add-word">请尽量让自己的回复能够对别人有帮助</span>

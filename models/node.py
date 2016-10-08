@@ -16,3 +16,4 @@ class Node(db.Model, ModelMixin):
     def __init__(self, form):
         self.created_time = timestamp()
         self.name = form.get('name', '')
+        self.description = form.get('description', '')
