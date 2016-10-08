@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/bbs-user.css">
+{% endblock %}
+
+{% block title %}
+    注册
+{% endblock %}
+
+{% block content %}
+    <div class="bbs-box">
+        <div class="bbs-cell">
+            <a class="dark-gray" href="/">V233</a></span>&nbsp;&nbsp;›&nbsp;&nbsp;注册
+        </div>
+        <div class="bbs-cell">
+            <form class="pure-form bbs-login-line" action="{{ url_for('.add') }}" method="post">
+                <div class="bbs-login-line">
+                    <span class="bbs-login-left small">用户名</span>
+                    <input type="text" name="username" class="bbs-login-input pure-input">
+                </div>
+
+                <div class="bbs-login-line">
+                    <span class="bbs-login-left small">密码</span>
+                    <input type="text" name="password" class="bbs-login-input pure-input">
+                </div>
+
+                <div class="bbs-login-line">
+                    <span class="bbs-login-left small"></span>
+                    <button class="pure-button">signup</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

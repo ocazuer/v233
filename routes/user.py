@@ -39,7 +39,7 @@ def add():
 
     if m.validate_register():
         m.save()
-        return redirect(url_for('.index'))
+        return redirect(url_for('.login'))
     else:
         return render_template('user_error.html', user=current_user())
 
@@ -75,6 +75,11 @@ def verification_login():
 @main.route('/login')
 def login():
     return render_template('user_login.html', user=current_user())
+
+
+@main.route('/signup')
+def signup():
+    return render_template('user_signup.html', user=current_user())
 
 
 @main.route('/logout', methods=['GET'])
