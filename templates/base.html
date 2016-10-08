@@ -32,7 +32,7 @@
             <a class="bbs-top-item" href="/user/logout">登出</a>
         {% else %}
             <a class="bbs-top-item" href="/node">节点</a>
-            <a class="bbs-top-item" href="/user">登录</a>
+            <a class="bbs-top-item" href="/user/login">登录</a>
             <a class="bbs-top-item" href="/user">注册</a>
         {% endif %}
         </div>
@@ -41,7 +41,7 @@
 <div class="bbs-body">
     <div class="bbs-body-container">
         <div class="bbs-content">
-            {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
         </div>
         <div class="bbs-sidebar">
             <div class="bbs-box">
@@ -54,7 +54,7 @@
                 <div class="bbs-cell bbs-sidebar-login">
                     <button class="pure-button">现在注册</button>
                     <br>
-                    <span>已注册用户请&nbsp&nbsp<a>登录</a></span>
+                    <span>已注册用户请&nbsp;&nbsp;<a>登录</a></span>
                 </div>
             {% else %}
                 <div class="bbs-cell bbs-sidebar-user">

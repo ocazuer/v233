@@ -1,0 +1,14 @@
+.bbs-login-left{
+    min-width: 100px;
+    display: inline-flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+.bbs-login-line + .bbs-login-line{
+    margin-top: 10px;
+}
+.bbs-login-input{
+    /*display: inline-flex !important;*/
+    height: 1.8em;
+    width: 300px;
+}

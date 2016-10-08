@@ -59,8 +59,8 @@ def delete(id):
     return redirect(url_for('.index'))
 
 
-@main.route('/login', methods=['POST'])
-def login():
+@main.route('/verification_login', methods=['POST'])
+def verification_login():
     form = request.form
     u = Model(form)
     user = User.query.filter_by(username=u.username).first()
@@ -69,7 +69,12 @@ def login():
         session['user_id'] = user.id
     else:
         print('登录失败')
-    return redirect(url_for('.index'))
+    return redirect(url_for('index.index'))
+
+
+@main.route('/login')
+def login():
+    return render_template('user_login.html', user=current_user())
 
 
 @main.route('/logout', methods=['GET'])
