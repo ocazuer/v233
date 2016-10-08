@@ -2,6 +2,8 @@ from . import ModelMixin
 from . import db
 from . import timestamp
 
+import hashlib
+
 
 class User(db.Model, ModelMixin):
     __tablename__ = 'users'
@@ -16,7 +18,7 @@ class User(db.Model, ModelMixin):
     def __init__(self, form):
         self.username = form.get('username', '')
         self.password = form.get('password', '')
-        self.avatar = form.get('avatar', '')
+        self.avatar = self.random_avatar()
 
 
     def validate_register(self):
@@ -24,3 +26,14 @@ class User(db.Model, ModelMixin):
 
     def validate_login(self, u):
         return u.username == self.username and u.password == self.password
+
+    def random_avatar(self):
+        # code from here: https://zh-tw.gravatar.com/site/implement/images/python/
+
+        username = self.username.encode('utf-8')
+        # email = "someone@somewhere2.com".encode('utf-8')
+        default = "retro"
+        size = 40
+        gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(username.lower()).hexdigest() + "?"
+        gravatar_url += 's={}&d={}'.format(size, default)
+        return gravatar_url
