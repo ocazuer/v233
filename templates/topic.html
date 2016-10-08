@@ -48,7 +48,7 @@
     {% endfor %}
     </div>
 
-
+    {% if user != None %}
     <div class="bbs-comment bbs-box">
         <div class="bbs-cell">
             添加一条新的回复 {{ user.username }}
@@ -63,5 +63,12 @@
             </div>
         </form>
     </div>
+    {% else %}
+    <div class="bbs-box">
+        <div class="bbs-cell">
+            <a href="/user/login">登录</a> 以回复
+        </div>
+    </div>
+    {% endif %}
 
 {% endblock %}
