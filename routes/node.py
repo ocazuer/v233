@@ -40,8 +40,8 @@ def add():
     form = request.form
     m = Model(form)
     m.save()
-    # return redirect(url_for('.index'))
-    return render_template('node.html', node=m, user=current_user())
+    return redirect(url_for('.index'))
+    # return render_template('node.html', node=m, user=current_user())
 
 
 # @main.route('/update/<int:id>', methods=['POST'])

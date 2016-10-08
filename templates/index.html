@@ -21,14 +21,14 @@
 
 
     <div class="bbs-box">
-        <div class="bbs-cell">
-            所有节点：
+        <div class="bbs-cell light-gray small">
+            <b>V233</b> / 节点导航
         </div>
+        <div class="bbs-cell dark-gray">
         {% for node in node_list %}
-        <div class="bbs-cell">
-            <a href="/node/{{ node.id }}">{{ node.name }}</a>
-        </div>
+            <a href="/node/{{ node.id }}">{{ node.name }}</a>&nbsp&nbsp
         {% endfor %}
+        </div>
     </div>
 
 {% endblock %}
