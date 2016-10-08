@@ -18,9 +18,12 @@
 <body class="bbs">
 <div class="bbs-top">
     <div class="bbs-top-container">
-        <!--<div class="bbs-top-logo">-->
+        <span class="bbs-top-left-container">
             <a class="bbs-top-logo" href="/">V233</a>
-        <!--</div>-->
+            <form class="pure-form">
+                <input type="text" class="pure-input-rounded bbs-search">
+            </form>
+        </span>
         <div class="bbs-top-menu">
         {% if user != None %}
             <a class="bbs-top-item" href="/">首页</a>
