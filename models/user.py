@@ -12,11 +12,14 @@ class User(db.Model, ModelMixin):
     # 明文储存密码
     password = db.Column(db.String())
     avatar = db.Column(db.String())
+    created_time = db.Column(db.Integer)
+    updated_time = db.Column(db.Integer)
     # relationship
     comments = db.relationship('Comment', backref="user")
     topics = db.relationship('Topic', backref="user")
 
     def __init__(self, form):
+        self.created_time = timestamp()
         self.username = form.get('username', '')
         self.password = form.get('password', '')
         self.avatar = self.random_avatar()

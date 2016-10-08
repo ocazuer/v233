@@ -8,8 +8,11 @@ class Node(db.Model, ModelMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
     description = db.Column(db.String())
-    # has relationship with topic
+    created_time = db.Column(db.Integer)
+    updated_time = db.Column(db.Integer)
+    # relationship
     topics = db.relationship('Topic', backref="node")
 
     def __init__(self, form):
+        self.created_time = timestamp()
         self.name = form.get('name', '')
