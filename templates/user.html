@@ -1,24 +1,48 @@
 {% extends "base.html" %}
 
-
+{% block css %}
+    <link rel="stylesheet" href="/static/css/bbs-user.css">
+    <link rel="stylesheet" href="/static/css/bbs-topic.css">
+{% endblock %}
 
 {% block title %}
-    user - {{ user.username }}
+    V233 - {{ member.username }}
 {% endblock %}
 
 {% block content %}
 
     <div class="bbs-box">
-        <div class="bbs-cell">
-            <h1>我的账号</h1>
+        <div class="bbs-cell bbs-user-card">
+            <img class="avatar-big" src="{{ member.avatar }}">
+            <div class="bbs-user-card-content">
+                <div class="bbs-user-card-username">{{ member.username }}</div>
+                <div class="small light-gray">V233 第 {{ member.id }} 号会员
+                    <!--，加入于 {{ member.created_time }}-->
+                </div>
+            </div>
         </div>
-        <div class="bbs-cell">
-            我的 id：{{ user.id }}
-            <br>
-            我的昵称：{{ user.name }}
-            <br>
-            我的密码：{{ user.password }}
+    </div>
+
+    <div class="bbs-box">
+        <div class="bbs-cell dark-gray">
+            {{ member.username }} 创建的所有主题
         </div>
+
+        {% for t in member.topics %}
+        <div class="bbs-cell bbs-topic-cell dark-gray">
+            <!--<img class="avatar" src={{ member.avatar }}>-->
+            <div class="bbs-topic-cell-content">
+                <a class="bbs-topic-cell-content-title dark-gray" href="/topic/{{ t.id }}">{{ t.title }}</a>
+                <div class="small">
+                    <a class="bbs-topic-cell-node" href="/node/{{ Node.query.filter_by(id=t.node_id ).first().id }}">{{ Node.query.filter_by(id=t.node_id ).first().name }}</a>
+                </div>
+            </div>
+            <div class="bbs-topic-cell-num">
+                {{ t.comments|length }}
+            </div>
+        </div>
+        {% endfor %}
+
     </div>
 
 {% endblock %}

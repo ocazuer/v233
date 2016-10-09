@@ -1,4 +1,5 @@
 from models.user import User
+from models.node import Node
 from routes import *
 
 Model = User
@@ -29,7 +30,7 @@ def index():
 @main.route('/<int:id>')
 def show(id):
     m = Model.query.get(id)
-    return render_template('user.html', user=current_user())
+    return render_template('user.html', user=current_user(), Node=Node, member=m)
 
 
 @main.route('/add', methods=['POST'])

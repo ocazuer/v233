@@ -12,3 +12,14 @@
     height: 1.8em;
     width: 300px;
 }
+.bbs-user-card{
+    display: flex;
+    flex-direction: row;
+}
+.bbs-user-card-content{
+    margin-left: 10px;
+}
+.bbs-user-card-username{
+    font-size: 1.8em;
+    line-height: 1.8em;
+}
