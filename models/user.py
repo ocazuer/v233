@@ -37,7 +37,7 @@ class User(db.Model, ModelMixin):
         username = self.username.encode('utf-8')
         # email = "someone@somewhere2.com".encode('utf-8')
         default = "retro"
-        size = 40
+        size = 80
         gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(username.lower()).hexdigest() + "?"
         gravatar_url += 's={}&d={}'.format(size, default)
         return gravatar_url
