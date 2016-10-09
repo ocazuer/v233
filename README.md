@@ -17,5 +17,5 @@ sh init.sh
 ## 运行
 
 ```
-python3 app.py server
+nohup gunicorn -b '0.0.0.0:80' wsgi:app &
 ```
