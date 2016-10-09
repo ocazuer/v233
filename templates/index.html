@@ -12,16 +12,6 @@
 
 
     <div class="bbs-box">
-        <div class="bbs-cell">
-            所有主题：
-        </div>
-        {% for topic in topic_list %}
-        <div class="bbs-cell">
-            <a href="/topic/{{ topic.id }}">{{ topic.title }}</a>
-            <span>{{ topic.comments|length }}</span>
-        </div>
-        {% endfor %}
-
         {% for t in topic_list %}
         <div class="bbs-cell bbs-topic-cell dark-gray">
             <img class="avatar" src={{ User.query.filter_by(id=t.user_id ).first().avatar }}>
