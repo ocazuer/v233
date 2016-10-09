@@ -30,7 +30,7 @@
         <div class="bbs-comment-item bbs-cell">
 
             <div class="bbs-comment-item-left">
-                <img src={{ User.query.filter_by(id=c.user_id ).first().avatar }}></img>
+                <img class="avatar" src={{ User.query.filter_by(id=c.user_id ).first().avatar }}></img>
                 <!--<img src="/static/img/avatar-default.jpg"></img>-->
             </div>
 
