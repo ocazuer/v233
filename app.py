@@ -1,3 +1,5 @@
+import sys
+
 from flask import Flask
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
@@ -55,10 +57,14 @@ def configured_app():
 def server():
     print('server run')
     # app = configured_app()
+    if sys.platform == 'linux':
+        port = 80
+    else:
+        port = 2000
     config = dict(
         debug=True,
         host='0.0.0.0',
-        port=2000,
+        port=port,
     )
     app.run(**config)
 
