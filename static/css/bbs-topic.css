@@ -1,4 +1,4 @@
-.bbs-topic-cell{
+/*.bbs-topic-cell{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -9,8 +9,53 @@
     font-size: 1.5em;
     margin-top: 10px;
     margin-bottom: 10px;
+}*/
+
+.bbs-top-left-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
+.bbs-topic-cell{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.bbs-topic-cell-content{
+    margin-left: 10px;
+    flex-grow: 1;
+}
+.bbs-topic-cell-content-title{
+    margin-bottom: 8px;
+    display: block;
+}
+.bbs-topic-cell-num{
+    background-color: #aab0c6;
+    color: #ffffff;
+    padding: 0px 10px;
+    border-radius: 10px;
+    font-size: 0.8em;
+}
+.bbs-topic-cell-node{
+    border-radius: 3px;
+    padding: 3px 6px;
+}
+.bbs-topic-cell-node:link,
+.bbs-topic-cell-node:visited
+{
+    color: #999999;
+    background-color: #f5f5f5;
+    text-decoration: none;
+}
+.bbs-topic-cell-node:hover,
+.bbs-topic-cell-node:active
+{
+    color: #777777;
+    background-color: #e2e2e2;
+    text-decoration: none;
+}
 .bbs-topic-add-cell {
     display: flex;
     flex-direction: column;

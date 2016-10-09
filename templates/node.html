@@ -25,7 +25,9 @@
                     <a class="bbs-topic-cell-content-title dark-gray" href="/topic/{{ t.id }}">{{ t.title }}</a>
 
                     <div class="small">
-                        <b>{{ User.query.filter_by(id=t.user_id ).first().username }}</b>
+                        <a href="/user/{{ User.query.filter_by(id=t.user_id ).first().id }}">
+                            <b>{{ User.query.filter_by(id=t.user_id ).first().username }}</b>
+                        </a>
                         <!--<span class="light-gray">•</span>
                         <span class="light-gray">一个小时前吧</span>
                         <span class="light-gray">•</span>

@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block css %}
+    <link rel="stylesheet" href="/static/css/bbs-topic.css">
+{% endblock %}
+
 {% block title %}
     V233
 {% endblock %}
@@ -15,6 +19,31 @@
         <div class="bbs-cell">
             <a href="/topic/{{ topic.id }}">{{ topic.title }}</a>
             <span>{{ topic.comments|length }}</span>
+        </div>
+        {% endfor %}
+
+        {% for t in topic_list %}
+        <div class="bbs-cell bbs-topic-cell dark-gray">
+            <img class="avatar" src={{ User.query.filter_by(id=t.user_id ).first().avatar }}>
+            <div class="bbs-topic-cell-content">
+                <a class="bbs-topic-cell-content-title dark-gray" href="/topic/{{ t.id }}">{{ t.title }}</a>
+
+                <div class="small">
+
+                    <a class="bbs-topic-cell-node" href="/node/{{ Node.query.filter_by(id=t.node_id ).first().id }}">{{ Node.query.filter_by(id=t.node_id ).first().name }}</a>
+                    <span class="light-gray">&nbsp;•&nbsp;</span>
+                    <a href="/user/{{ User.query.filter_by(id=t.user_id ).first().id }}">
+                        <b>{{ User.query.filter_by(id=t.user_id ).first().username }}</b>
+                    </a>
+                    <!--<span class="light-gray">•</span>
+                    <span class="light-gray">一个小时前吧</span>
+                    <span class="light-gray">•</span>
+                    <span class="light-gray">最后回复来自</span> <span>某人</span>-->
+                </div>
+            </div>
+            <div class="bbs-topic-cell-num">
+                {{ t.comments|length }}
+            </div>
         </div>
         {% endfor %}
     </div>

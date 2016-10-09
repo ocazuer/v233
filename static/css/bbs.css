@@ -140,12 +140,12 @@ img,
 
 a:link,
 a:visited{
-    /*color: #505050;*/
+    color: #808080;
     text-decoration: none;
 }
 a:hover,
 a:active{
-    /*color: #808080;*/
+    color: #505050;
     text-decoration: underline;
 }
 
@@ -159,31 +159,4 @@ a:active{
     border: 1.5px solid #d5d5d5;
     height: 25px;
     margin: 0px 0px 0px 20px  !important;
-}
-.bbs-top-left-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.bbs-topic-cell{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-.bbs-topic-cell-content{
-    margin-left: 10px;
-    flex-grow: 1;
-}
-.bbs-topic-cell-content-title{
-    margin-bottom: 5px;
-    display: block;
-}
-.bbs-topic-cell-num{
-    background-color: #aab0c6;
-    color: #FFF;
-    padding: 0px 10px;
-    border-radius: 10px;
-    font-size: 0.8em;
 }
