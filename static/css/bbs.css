@@ -33,6 +33,12 @@
     align-items: center;
 }
 
+.bbs-top-left-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .bbs-top-logo,
 .bbs-top-menu {
     margin-top: auto;
@@ -107,6 +113,7 @@
     /*background-color: lightblue;*/
     border-top-color: lightgray;
 }
+
 
 .bbs-top-item + .bbs-top-item {
     margin-left: 10px;
