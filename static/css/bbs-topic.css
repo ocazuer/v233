@@ -1,15 +1,15 @@
-/*.bbs-topic-cell{
+.bbs-topic-card{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
 
 }
-.bbs-topic-title{
+.bbs-topic-card-title{
     font-size: 1.5em;
     margin-top: 10px;
     margin-bottom: 10px;
-}*/
+}
 
 .bbs-top-left-container{
     display: flex;
