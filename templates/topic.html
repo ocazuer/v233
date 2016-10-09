@@ -37,7 +37,9 @@
             <div class="bbs-comment-item-right">
                 <div class="bbs-comment-item-right-up">
                     <a>{{ User.query.filter_by(id=c.user_id ).first().username }}</a>
+                    {% if user.id == c.user_id %}
                     <a class="bbs-comment-menu hidden" href="{{ url_for('comment.delete', id=c.id) }}">delete</a>
+                    {% endif %}
                 </div>
                 <div class="bbs-comment-item-right-bottom">
                     <div>{{ c.content|markdown }}</div>
