@@ -11,6 +11,7 @@ main = Blueprint('topic', __name__)
 
 
 @main.route('/')
+@admin_required
 def index():
     ms = Model.query.all()
     return render_template('topic_index.html', topic_list=ms, user=current_user())

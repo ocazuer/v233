@@ -1,24 +1,12 @@
 from models.node import Node as Model
 from models.user import User
 from routes import *
-from functools import wraps
 
 main = Blueprint('node', __name__)
 
 
-def admin_required(f):
-    @wraps(f)
-    def function(*args, **kwargs):
-        # your code
-        print('admin required')
-        if request.args.get('uid') != '1':
-            print('not admin')
-            abort(404)
-        return f(*args, **kwargs)
-    return function
-
-
 @main.route('/')
+@admin_required
 def index():
     ms = Model.query.all()
     return render_template('node_index.html', node_list=ms, user=current_user())
@@ -37,6 +25,7 @@ def show(id):
 
 
 @main.route('/add', methods=['POST'])
+@admin_required
 def add():
     form = request.form
     m = Model(form)
