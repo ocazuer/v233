@@ -20,6 +20,7 @@ from routes.topic import main as routes_topic
 from routes.comment import main as routes_comment
 from routes.user import main as routes_user
 from routes.index import main as routes_index
+from routes.resume import main as routes_resume
 
 
 app = Flask(__name__)
@@ -34,6 +35,7 @@ def register_routes(app):
     app.register_blueprint(routes_comment, url_prefix='/comment')
     app.register_blueprint(routes_user, url_prefix='/user')
     app.register_blueprint(routes_index, url_prefix='/')
+    app.register_blueprint(routes_resume, url_prefix='/resume')
 
 
 def configure_app():
