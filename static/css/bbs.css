@@ -105,6 +105,7 @@
 .bbs-cell {
     padding: 10px 0;
     padding: 10px;
+    overflow: hidden;
 }
 
 .bbs-cell+.bbs-cell {
@@ -168,4 +169,8 @@ a:active{
     border: 1.5px solid #d5d5d5;
     height: 25px;
     margin: 0px 0px 0px 20px  !important;
+}
+
+img {
+    max-width: 100%;
 }
