@@ -46,7 +46,7 @@ def configure_app():
     register_routes(app)
 
     # markdwon
-    from flask.markdown import Markdown
+    from flaskext.markdown import Markdown
     Markdown(app)
 
 def configured_app():
